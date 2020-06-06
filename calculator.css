@@ -1,0 +1,74 @@
+body {
+    font-size: 12pt;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+}
+
+.calculator-shell {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 48pt;
+    text-align: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.display {
+    font-size: 32pt;
+    text-align: right;
+    justify-content: center;
+    height: 100px;
+    width: 415px;
+    margin: auto;
+    padding: 150px 190px 0px 190px;
+    position: relative;
+}
+
+.numbersBox {
+    position: absolute;
+    padding-right: 190px;
+    bottom: 0;
+    right: 0;
+}
+
+.row {
+    padding: 2px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    width: 600px;
+}
+
+.operator, .numbers {
+    font-size: 32pt;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border: 2px solid #555555;
+    border-radius: 5px;
+    outline: none;
+    background-color: #555555;
+    color: white;
+    transition-duration: 0.25s;
+}
+
+.operator:hover, .numbers:hover {
+    background-color: white;
+    border: 2px solid #555555;
+    color: #555555;
+}
+
+#clear, #equal {
+    width: 205px;
+}

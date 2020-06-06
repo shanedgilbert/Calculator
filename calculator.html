@@ -1,0 +1,56 @@
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <link rel="stylesheet" href="calculator.css">
+        <title>Shane's Calculator</title>
+    </head>
+
+    <body class="calculator-shell">
+        <div class="row">
+            <header class="title"></header>
+        </div>
+        <div class="display">
+            <div class="numbersBox"></div>
+        </div>
+        <div class="button-container">
+            <!--row1-->
+            <div class="row">
+                <button class="operator" id="clear" onclick="buttonPress(this.id)">C</button>
+                <button class="operator" id="del" onclick="buttonPress(this.id)">DEL</button>
+                <button class="operator" id="div" onclick="buttonPress(this.id)">/</button>
+            </div>
+            
+            <!--row2-->
+            <div class="row">
+                <button class="numbers" id="seven" onclick="buttonPress(this.id)">7</button>
+                <button class="numbers" id="eight" onclick="buttonPress(this.id)">8</button>
+                <button class="numbers" id="nine" onclick="buttonPress(this.id)">9</button>
+                <button class="operator" id="mult" onclick="buttonPress(this.id)">*</button>
+            </div>
+
+            <!--row3-->
+            <div class="row">
+                <button class="numbers" id="four" onclick="buttonPress(this.id)">4</button>
+                <button class="numbers" id="five" onclick="buttonPress(this.id)">5</button>
+                <button class="numbers" id="six" onclick="buttonPress(this.id)">6</button>
+                <button class="operator" id="sub" onclick="buttonPress(this.id)">-</button>
+            </div>
+
+            <!--row4-->
+            <div class="row">
+                <button class="numbers" id="one" onclick="buttonPress(this.id)">1</button>
+                <button class="numbers" id="two" onclick="buttonPress(this.id)">2</button>
+                <button class="numbers" id="three" onclick="buttonPress(this.id)">3</button>
+                <button class="operator" id="add" onclick="buttonPress(this.id)">+</button>
+            </div>
+
+            <!--row5-->
+            <div class="row">
+                <button class="numbers" id="zero" onclick="buttonPress(this.id)">0</button>
+                <button class="numbers" id="per" onclick="buttonPress(this.id)">.</button>
+                <button class="operator" id="equal" onclick="buttonPress(this.id)">=</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="calculator.js"></script>
+    </body>
+</html>
