@@ -6,6 +6,7 @@ TODO:
 2. previous inputs? above number display
 3. github
 4. period. make sure it doesnt put 2 in the same number
+5. changing of operators befor einputting numbers
 */
 
 let numbers = document.getElementsByClassName("numbers");
@@ -158,19 +159,42 @@ function buttonPress(clicked_id) {
     }
 }
 
-function add(numsArray) {
-    let sum = 0;
-    numsArray.forEach(number => sum += number);
-    return sum;
-}
-function sub(numsArray) {
-    let sum = numsArray[0]*2;
-    numsArray.forEach(number => sum -= number);
-    return sum;
+/**
+ * Returns the sum of 2 numbers
+ * @param {number} num1 the first number being added
+ * @param {number} num2 the second number being added
+ * @result the sum of num1 and num2
+ */
+function add(num1, num2) {
+    return num1 + num2;
 }
 
-function mult(numsArray) {
-    let product = 1;
-    numsArray.forEach(number => product *= number);
-    return product;
+/**
+ * Returns the result of subtraction between 2 numbers
+ * @param {number} num1 the number being subtracted from
+ * @param {number} num2 the number subtracting
+ * @return num1 - num2
+ */
+function sub(num1, num2) {
+    return num1 - num2;
+}
+
+/**
+ * Returns the product of 2 numbers
+ * @param {number} num1 multiplicand
+ * @param {number} num2 multiplicand
+ * @return the multiplication of num1 and num2
+ */
+function mult(num1, num2) {
+    return num1 * num2;
+}
+
+/**
+ * Divides num1 by num2
+ * @param {number} num1 numerator
+ * @param {number} num2 denominator
+ * @return returns the result of the division
+ */
+function div(num1, num2) {
+    return num1 / num2;
 }
