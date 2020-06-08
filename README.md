@@ -1,5 +1,4 @@
 # _Calculator_
-___
 ### A simple calculator created with HTML/CSS, utilizing Javascript for functionality. 
 ## TODO:
 1. previous inputs? above number display
