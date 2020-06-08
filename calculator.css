@@ -1,7 +1,8 @@
 body {
     font-size: 12pt;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
     margin: 0;
+    background-color: #f2f2f2;
 }
 
 .calculator-shell {
@@ -12,25 +13,28 @@ body {
 
 .title {
     font-size: 48pt;
+    font-family: Helvetica, sans-serif;
     text-align: center;
     justify-content: center;
     padding-top: 4rem;
 }
 
 .display {
-    font-size: 32pt;
+    font-size: 40pt;
     text-align: right;
     justify-content: center;
     height: 100px;
     width: 415px;
     margin: auto;
-    padding: 150px 190px 0px 190px;
+    margin-top: 50px; 
+    padding: 0px 190px 0px 190px;
     position: relative;
 }
 
 .numbersBox {
     position: absolute;
     padding-right: 190px;
+    padding-bottom: 10px;
     bottom: 0;
     right: 0;
 }
