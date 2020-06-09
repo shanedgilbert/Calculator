@@ -1,11 +1,12 @@
 /*
 TODO: 
 1. previous inputs? above number display
-2. decimal. make sure it doesnt put 2 in the same number
-3. display fewer decimal places
-4. equals > operator > equals = bug
-5. negative initial number
+2. --FIXED-- decimal. make sure it doesnt put 2 in the same number
+3. --FIXED-- display fewer decimal places
+4. --FIXED-- equals > operator > equals = bug 
+5. --FIXED-- negative initial number
 6. set max width for number and box size
+7. --FIXED-- divide by 0
 */
 
 //Stores numeric inputs
@@ -26,12 +27,12 @@ let tempNumber = "";
 function buttonPress(clicked_id) {
     switch(clicked_id) {
         case "clear":
-            inputNumber = "";
+            inputNumber = "";                                               //Clear input
             document.querySelector(".numbersBox").innerHTML = inputNumber;
             if(inputNumber == "") {
                 document.querySelector("#clear").innerHTML = "CE";
             }
-            if(document.querySelector("#clear").innerHTML == "CE") {
+            if(document.querySelector("#clear").innerHTML == "CE") {        //Clear everything
                 inputArray = [];
                 operator = "";
             }
@@ -54,7 +55,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "" && inputArray.length == 1) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -69,7 +70,7 @@ function buttonPress(clicked_id) {
                 if (inputArray.length == 1 && inputNumber !== "") {             //Repetition of the operator when there is a previous and current input (operates)
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -83,7 +84,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "") {                                //operates (previous operator) when there is a current input and changes the operator to the new selected operator
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "div";
@@ -101,7 +102,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "" && inputArray.length == 1) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -116,7 +117,7 @@ function buttonPress(clicked_id) {
                 if (inputArray.length == 1 && inputNumber !== "") {             //Repetition of the operator when there is a previous and current input (operates)
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -130,7 +131,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "") {                                //operates (previous operator) when there is a current input and changes the operator to the new selected operator
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "mult";
@@ -141,14 +142,17 @@ function buttonPress(clicked_id) {
         
         case "sub":
             if (operator == "") {                   //Functions when there is no previous operator
-                if (inputNumber !== "" && inputArray.length !== 1) {       //Saves the input and operator after first input(number then operator)
+                if(inputNumber == "" && inputArray.length == 0) {               //Allows negative initial numbers
+                    inputNumber = "-";
+                    document.querySelector(".numbersBox").innerHTML = inputNumber;
+                } else if (inputNumber !== "" && inputArray.length !== 1) {     //Saves the input and operator after first input(number then operator)
                     operator = "sub";
                     inputArray.push(inputNumber);
                     inputNumber = "";
                 } else if (inputNumber !== "" && inputArray.length == 1) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -163,7 +167,7 @@ function buttonPress(clicked_id) {
                 if (inputArray.length == 1 && inputNumber !== "") {             //Repetition of the operator when there is a previous and current input (operates)
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -177,7 +181,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "") {                                //operates (previous operator) when there is a current input and changes the operator to the new selected operator
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "sub";
@@ -195,7 +199,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "" && inputArray.length == 1) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -210,7 +214,7 @@ function buttonPress(clicked_id) {
                 if (inputArray.length == 1 && inputNumber !== "") {             //Repetition of the operator when there is a previous and current input (operates)
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -224,7 +228,7 @@ function buttonPress(clicked_id) {
                 } else if (inputNumber !== "") {                                //operates (previous operator) when there is a current input and changes the operator to the new selected operator
                     inputArray.push(inputNumber);
                     let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "add";
@@ -234,23 +238,30 @@ function buttonPress(clicked_id) {
         break;
 
         case "equal":
-            if (operator !== "") {
-                inputArray.push(inputNumber);
-                let result = operate(operator);
-                document.querySelector(".numbersBox").innerHTML = result;
-                inputArray[0] = result;
-                inputArray.pop();
-                tempNumber = inputNumber;
-                inputNumber = "";
-                tempOperator = operator;
-                operator = "";
-            } else if (operator == "") {
-                if (inputArray.length == 0) {
+            if (inputNumber == ".") {           //Checks if inputNumber is only a decimal
+                break;
+            }
+            else if (operator !== "") {
+                if (inputNumber == "") {        //Does nothing when there is no number to operate on
+                    break;
+                } else {
+                    inputArray.push(inputNumber);
+                    let result = operate(operator);
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    inputArray[0] = result;
+                    inputArray.pop();
+                    tempNumber = inputNumber;
+                    inputNumber = "";
+                    tempOperator = operator;
+                    operator = "";
+                }
+            } else if (operator == "") {        
+                if (inputArray.length == 0) {   //Does nothing when "equal" is the first button pressed
                     break;
                 } else if (inputArray.length == 1) {
                     inputArray.push(tempNumber);
                     let result = operate(tempOperator);
-                    document.querySelector(".numbersBox").innerHTML = result;
+                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -341,6 +352,9 @@ function buttonPress(clicked_id) {
             break;
         
         case "per":
+            if (inputNumber.includes(".")) {      //Checks for period repetition
+                break;
+            }
             inputNumber = inputNumber + ".";
             if(document.querySelector("#clear").innerHTML != "C") {
                 document.querySelector("#clear").innerHTML = "C";
@@ -357,7 +371,7 @@ function buttonPress(clicked_id) {
  * @result the sum of num1 and num2
  */
 function add(num1, num2) {
-    return parseInt(num1) + parseInt(num2);
+    return parseFloat(num1) + parseFloat(num2);
 }
 
 /**
@@ -387,6 +401,11 @@ function mult(num1, num2) {
  * @return returns the result of the division
  */
 function div(num1, num2) {
+    if (num1 !== 0 && num2 == 0) {
+        alert("You cannot divide by 0! \nStart Over");
+        inputArray.pop();
+        return 0;
+    }
     return num1 / num2;
 }
 
