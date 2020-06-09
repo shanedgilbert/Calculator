@@ -9,3 +9,7 @@
 5. ~~negative initial number~~
 6. set max width for number and box size (Stretch goal)
 7. ~~divide by 0~~
+8. ~~changing operators (should do nothing but change operators)~~
+9. ~~repeatedly pressing 'equals' after an operation should repeat operation~~
+10. ~~selecting operators before any numbers (should do nothing)~~
+11. ~~'C' should clear the input and change to 'CE'. 'CE' should clear everything~~
