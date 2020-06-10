@@ -16,3 +16,4 @@
 12. keyboard input (Stretch goal)
 13. ~~github link~~
 14. constantly update previous inputs (after every button press)
+15. ~~different color for operators~~

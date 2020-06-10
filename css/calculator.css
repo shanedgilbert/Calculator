@@ -71,18 +71,35 @@ body {
     width: 100px;
     height: 100px;
     padding: 5px;
-    border: 2px solid #555555;
     border-radius: 5px;
     outline: none;
-    background-color: #555555;
     color: white;
     transition-duration: 0.25s;
 }
 
+.numbers {
+    background-color: #555555;
+    border: 2px solid #555555;
+}
+
+.operator {
+    background-color: #333333;
+    border: 2px solid #333333;
+}
+
 .operator:hover, .numbers:hover {
     background-color: #f2f2f2;
+    
+}
+
+.numbers:hover {
     border: 2px solid #555555;
     color: #555555;
+}
+
+.operator:hover {
+    border: 2px solid #333333;
+    color: #333333;
 }
 
 #clear, #equal {
