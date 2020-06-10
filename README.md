@@ -2,7 +2,7 @@
 #### _A simple calculator created with HTML/CSS, utilizing Javascript for functionality._ 
 ## My approach to this program: 
 ## TODO:
-1. previous inputs? above number display (Stretch goal)
+1. ~~previous inputs? above number display (Stretch goal)~~
 2. ~~decimal. make sure it doesnt put 2 in the same number~~
 3. ~~display fewer decimal places~~
 4. ~~equals > operator > equals = bug~~
@@ -15,3 +15,4 @@
 11. ~~'C' should clear the input and change to 'CE'. 'CE' should clear everything~~
 12. keyboard input (Stretch goal)
 13. ~~github link~~
+14. constantly update previous inputs (after every button press)

@@ -1,12 +1,13 @@
 /*
 TODO: 
-1. previous inputs? above number display
+1. --FIXED-- previous inputs? above number display
 2. --FIXED-- decimal. make sure it doesnt put 2 in the same number
 3. --FIXED-- display fewer decimal places
 4. --FIXED-- equals > operator > equals = bug 
 5. --FIXED-- negative initial number
 6. set max width for number and box size
 7. --FIXED-- divide by 0
+8. keyboard inputs
 */
 
 //Stores numeric inputs
@@ -19,6 +20,10 @@ let operator = "";
 let tempOperator = "";
 //Stores the previous number (for use with equal repetition)
 let tempNumber = "";
+//Stores the previous operation for secondary display
+let previousResults = "";
+//Stores symbol version of operator
+let operatorSymbol = "";
 
 /**
  * Handles the different buttons and their associated functionality (number/operator)
@@ -35,6 +40,8 @@ function buttonPress(clicked_id) {
             if(document.querySelector("#clear").innerHTML == "CE") {        //Clear everything
                 inputArray = [];
                 operator = "";
+                previousResults = "";
+                document.querySelector(".previousNumbers").innerHTML = previousResults;
             }
             break;
         
@@ -56,6 +63,17 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    if (inputNumber == "0") {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    } else {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    }
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -71,6 +89,17 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    if (inputNumber == "0") {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    } else {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    }
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -85,6 +114,17 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    if (inputNumber == "0") {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    } else {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    }
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "div";
@@ -103,6 +143,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -118,6 +165,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -132,6 +186,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "mult";
@@ -153,6 +214,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -168,6 +236,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -182,6 +257,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "sub";
@@ -200,6 +282,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -215,6 +304,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -229,6 +325,13 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     operator = "add";
@@ -248,6 +351,17 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     let result = operate(operator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(operator);
+                    if (inputNumber == 0 && operator == "div") {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    } else {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    }
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     tempNumber = inputNumber;
@@ -262,6 +376,17 @@ function buttonPress(clicked_id) {
                     inputArray.push(tempNumber);
                     let result = operate(tempOperator);
                     document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    
+                    //Handles the pervious operation display
+                    let operatorSymbol = operatorConvert(tempOperator);
+                    if (tempNumber == 0 && tempOperator == "div") {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    } else {
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                    }
+                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                    //Resets variables
                     inputArray[0] = result;
                     inputArray.pop();
                     inputNumber = "";
@@ -424,5 +549,23 @@ function operate(operator) {
             return div(inputArray[0], inputArray[1]);
         case "mult":
             return mult(inputArray[0], inputArray[1]);
+    }
+}
+
+/**
+ * Changes the word operator into the symbol operator for display
+ * @param {String} operator String word version of the operator
+ * @return String symbol of the operator
+ */
+function operatorConvert(operator) {
+    switch(operator) {
+        case "add": 
+            return "+";
+        case "sub": 
+            return "-";
+        case "div":
+            return "/";
+        case "mult":
+            return "x";
     }
 }
