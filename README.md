@@ -14,4 +14,4 @@
 10. ~~selecting operators before any numbers (should do nothing)~~
 11. ~~'C' should clear the input and change to 'CE'. 'CE' should clear everything~~
 12. keyboard input (Stretch goal)
-13. github link
+13. ~~github link~~
