@@ -7,13 +7,13 @@
 3. ~~display fewer decimal places~~
 4. ~~equals > operator > equals = bug~~
 5. ~~negative initial number~~
-6. set max width for number and box size (Stretch goal)
+6. set max width for number and box size (niche goal)
 7. ~~divide by 0~~
 8. ~~changing operators (should do nothing but change operators)~~
 9. ~~repeatedly pressing 'equals' after an operation should repeat operation~~
 10. ~~selecting operators before any numbers (should do nothing)~~
 11. ~~'C' should clear the input and change to 'CE'. 'CE' should clear everything~~
-12. keyboard input (Stretch goal)
+12. ~~keyboard input (Stretch goal)~~
 13. ~~github link~~
-14. constantly update previous inputs (after every button press)
+14. constantly update previous inputs, after every button press (stretch goal)
 15. ~~different color for operators~~
