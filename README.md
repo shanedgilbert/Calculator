@@ -3,8 +3,6 @@
 
 ![Calculator](/img/calc.PNG)
 
----
-
 ## My approach to this program: 
 1. Created the initial calculator layout with HTML and styled it with CSS
 2. Wrote out the initial operator functions (add, sub, mult, div)
@@ -14,8 +12,6 @@
 6. Created various if/else statements to handle niche cases such as changes in operators, various inputs for equals, dividing by 0, negative initial number, decimals, and repetitive equal presses(should repeat last operation)
 7. Created a display above the primary display to show complete operation (needed to create additional variables to store these values)
 8. Added keyboard support to go alongside button clicks
-
----
 
 ## TODO:
 * ~~previous inputs? above number display (Stretch goal)~~
