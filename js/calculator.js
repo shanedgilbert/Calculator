@@ -24,6 +24,8 @@ let tempNumber = "";
 let previousResults = "";
 //Stores symbol version of operator
 let operatorSymbol = "";
+//Store previous operator (includes equals)
+let previousOperator = "";
 
 /**
  * Handles the different buttons and their associated functionality (number/operator)
@@ -60,23 +62,27 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     inputNumber = "";
                 } else if (inputNumber !== "" && inputArray.length == 1) {
-                    inputArray.push(inputNumber);
-                    let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
-
-                    //Handles the pervious operation display
-                    let operatorSymbol = operatorConvert(operator);
-                    if (inputNumber == "0") {
-                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + 0 + " = ";
+                    if (previousOperator == "equals") {
+                        inputArray.pop();
+                        inputArray.push(inputNumber);
+                        operator = "div";
+                        inputNumber = "";
+                        previousOperator = "";
                     } else {
-                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
-                    }
-                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+                        inputArray.push(inputNumber);
+                        let result = operate(operator);
+                        document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
 
-                    //Resets variables
-                    inputArray[0] = result;
-                    inputArray.pop();
-                    inputNumber = "";
+                        //Handles the pervious operation display
+                        let operatorSymbol = operatorConvert(operator);
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                        document.querySelector(".previousNumbers").innerHTML = previousResults;
+
+                        //Resets variables
+                        inputArray[0] = result;
+                        inputArray.pop();
+                        inputNumber = "";
+                    }
                 } else if (inputNumber == "") {     //Repetition of operator when there is no input
                     if (inputArray.length == 0) {
                         break; 
@@ -140,19 +146,27 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     inputNumber = "";
                 } else if (inputNumber !== "" && inputArray.length == 1) {
-                    inputArray.push(inputNumber);
-                    let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    if (previousOperator == "equals") {
+                        inputArray.pop();
+                        inputArray.push(inputNumber);
+                        operator = "mult";
+                        inputNumber = "";
+                        previousOperator = "";
+                    } else {
+                        inputArray.push(inputNumber);
+                        let result = operate(operator);
+                        document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
 
-                    //Handles the pervious operation display
-                    let operatorSymbol = operatorConvert(operator);
-                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
-                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+                        //Handles the pervious operation display
+                        let operatorSymbol = operatorConvert(operator);
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                        document.querySelector(".previousNumbers").innerHTML = previousResults;
 
-                    //Resets variables
-                    inputArray[0] = result;
-                    inputArray.pop();
-                    inputNumber = "";
+                        //Resets variables
+                        inputArray[0] = result;
+                        inputArray.pop();
+                        inputNumber = "";
+                    }
                 } else if (inputNumber == "") {     //Repetition of operator when there is no input
                     if (inputArray.length == 0) {
                         break; 
@@ -211,19 +225,27 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     inputNumber = "";
                 } else if (inputNumber !== "" && inputArray.length == 1) {
-                    inputArray.push(inputNumber);
-                    let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    if (previousOperator == "equals") {
+                        inputArray.pop();
+                        inputArray.push(inputNumber);
+                        operator = "sub";
+                        inputNumber = "";
+                        previousOperator = "";
+                    } else {
+                        inputArray.push(inputNumber);
+                        let result = operate(operator);
+                        document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
 
-                    //Handles the pervious operation display
-                    let operatorSymbol = operatorConvert(operator);
-                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
-                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+                        //Handles the pervious operation display
+                        let operatorSymbol = operatorConvert(operator);
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                        document.querySelector(".previousNumbers").innerHTML = previousResults;
 
-                    //Resets variables
-                    inputArray[0] = result;
-                    inputArray.pop();
-                    inputNumber = "";
+                        //Resets variables
+                        inputArray[0] = result;
+                        inputArray.pop();
+                        inputNumber = "";
+                    }
                 } else if (inputNumber == "") {     //Repetition of operator when there is no input
                     if (inputArray.length == 0) {
                         break; 
@@ -279,19 +301,27 @@ function buttonPress(clicked_id) {
                     inputArray.push(inputNumber);
                     inputNumber = "";
                 } else if (inputNumber !== "" && inputArray.length == 1) {
-                    inputArray.push(inputNumber);
-                    let result = operate(operator);
-                    document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
+                    if (previousOperator == "equals") {
+                        inputArray.pop();
+                        inputArray.push(inputNumber);
+                        operator = "add";
+                        inputNumber = "";
+                        previousOperator = "";
+                    } else {
+                        inputArray.push(inputNumber);
+                        let result = operate(operator);
+                        document.querySelector(".numbersBox").innerHTML = parseFloat(result.toFixed(6));
 
-                    //Handles the pervious operation display
-                    let operatorSymbol = operatorConvert(operator);
-                    previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
-                    document.querySelector(".previousNumbers").innerHTML = previousResults;
+                        //Handles the pervious operation display
+                        let operatorSymbol = operatorConvert(operator);
+                        previousResults = parseFloat(parseFloat(inputArray[0]).toFixed(6)) + " " + operatorSymbol + " " + parseFloat(parseFloat(inputArray[1]).toFixed(6)) + " = ";
+                        document.querySelector(".previousNumbers").innerHTML = previousResults;
 
-                    //Resets variables
-                    inputArray[0] = result;
-                    inputArray.pop();
-                    inputNumber = "";
+                        //Resets variables
+                        inputArray[0] = result;
+                        inputArray.pop();
+                        inputNumber = "";
+                    }
                 } else if (inputNumber == "") {     //Repetition of operator when there is no input
                     if (inputArray.length == 0) {
                         break; 
@@ -368,6 +398,7 @@ function buttonPress(clicked_id) {
                     inputNumber = "";
                     tempOperator = operator;
                     operator = "";
+                    previousOperator = "equals";
                 }
             } else if (operator == "") {        
                 if (inputArray.length == 0) {   //Does nothing when "equal" is the first button pressed
@@ -391,6 +422,7 @@ function buttonPress(clicked_id) {
                     inputArray.pop();
                     inputNumber = "";
                     operator = "";
+                    previousOperator = "equals";
                 }
             }
             break;
