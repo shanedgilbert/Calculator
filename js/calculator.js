@@ -29,74 +29,6 @@ let previousOperator = "";
 
 //Adds event listener for keypress
 document.querySelector('.calculator-shell').addEventListener('keydown', keyCapture);
-//Handles keyboard inputs
-function keyCapture(e) {
-    switch(e.keyCode) {
-        case 8:                     //'backspace'
-            document.getElementById("del").click();
-            break;
-        case 13:                    //'enter' will count as '='
-        case 187:                   //'='
-            document.getElementById("equal").click();
-            break;
-        case 48:                    //'0'
-        case 96: 
-            document.getElementById("zero").click();
-            break;
-        case 49:                    //'1'
-        case 97:
-            document.getElementById("one").click();
-            break;
-        case 50:                    //'2'
-        case 98:
-            document.getElementById("two").click();
-            break;
-        case 51:                    //'3'
-        case 99:
-            document.getElementById("three").click();
-            break;
-        case 52:                    //'4'
-        case 100:
-            document.getElementById("four").click();
-            break;
-        case 53:                    //'5'
-        case 101:
-            document.getElementById("five").click();
-            break;
-        case 54:                    //'6'
-        case 102:
-            document.getElementById("six").click();
-            break;
-        case 55:                    //'7'
-        case 103:
-            document.getElementById("seven").click();
-            break;
-        case 56:                    //'8'
-        case 104:
-            document.getElementById("eight").click();
-            break;
-        case 57:                    //'9'
-        case 105:
-            document.getElementById("nine").click();
-            break;
-        case 111:                   //'/'
-            document.getElementById("div").click();
-            break;
-        case 106:                   //'*'
-            document.getElementById("mult").click();
-            break;
-        case 109:                   //'-'
-            document.getElementById("sub").click();
-            break;
-        case 107:                   //'+'
-            document.getElementById("add").click();
-            break;
-        case 110:                   //'.'
-            document.getElementById("per").click();
-            break;
-    }
-}
-
 
 /**
  * Handles the different buttons and their associated functionality (number/operator)
@@ -471,7 +403,7 @@ function buttonPress(clicked_id) {
                     operator = "";
                     previousOperator = "equals";
                 }
-            } else if (operator == "") {        
+            } else if (operator == "") {       
                 if (inputArray.length == 0) {   //Does nothing when "equal" is the first button pressed
                     break;
                 } else if (inputArray.length == 1) {
@@ -588,6 +520,77 @@ function buttonPress(clicked_id) {
                 document.querySelector("#clear").innerHTML = "C";
             }
             document.querySelector(".numbersBox").innerHTML = inputNumber;
+            break;
+    }
+}
+
+//Handles keyboard inputs
+function keyCapture(e) {
+    e.preventDefault();
+    switch(e.keyCode) {
+        case 8:                     //'backspace'
+            document.getElementById("del").click();
+            break;
+        case 13:                    //'enter' will count as '='
+            document.getElementById("equal").click();
+            break;
+        case 187:                   //'='
+            document.getElementById("equal").click();
+            break;
+        case 48:                    //'0'
+        case 96: 
+            document.getElementById("zero").click();
+            break;
+        case 49:                    //'1'
+        case 97:
+            document.getElementById("one").click();
+            break;
+        case 50:                    //'2'
+        case 98:
+            document.getElementById("two").click();
+            break;
+        case 51:                    //'3'
+        case 99:
+            document.getElementById("three").click();
+            break;
+        case 52:                    //'4'
+        case 100:
+            document.getElementById("four").click();
+            break;
+        case 53:                    //'5'
+        case 101:
+            document.getElementById("five").click();
+            break;
+        case 54:                    //'6'
+        case 102:
+            document.getElementById("six").click();
+            break;
+        case 55:                    //'7'
+        case 103:
+            document.getElementById("seven").click();
+            break;
+        case 56:                    //'8'
+        case 104:
+            document.getElementById("eight").click();
+            break;
+        case 57:                    //'9'
+        case 105:
+            document.getElementById("nine").click();
+            break;
+        case 111:                   //'/'
+            document.getElementById("div").click();
+            break;
+        case 106:                   //'*'
+            document.getElementById("mult").click();
+            break;
+        case 109:                   //'-'
+            document.getElementById("sub").click();
+            break;
+        case 107:                   //'+'
+            document.getElementById("add").click();
+            break;
+        case 110:                   //'.'
+            document.getElementById("per").click();
             break;
     }
 }
